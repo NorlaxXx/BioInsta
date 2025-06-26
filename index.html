@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Eliel | Link na Bio</title>
 
-  <!-- Fonte moderna -->
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Fonte pixelada estilo terminal -->
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <!-- Ícones do FontAwesome -->
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
   <style>
-    /* Reset e estilo básico */
     * {
       margin: 0;
       padding: 0;
@@ -19,107 +18,111 @@
     }
 
     body {
-      font-family: 'Rubik', sans-serif;
-      background: linear-gradient(160deg, #000000, #111111);
-      color: white;
+      font-family: 'Share Tech Mono', monospace;
+      background: radial-gradient(circle at top, #000 0%, #020202 100%);
+      color: #00ff88;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       min-height: 100vh;
       padding: 20px;
+      overflow: hidden;
     }
 
-    /* Cartão principal */
     .cartao {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
+      background: rgba(0, 255, 136, 0.05);
+      border: 1px solid #00ff88;
+      border-radius: 16px;
       padding: 40px 20px;
+      max-width: 420px;
       width: 100%;
-      max-width: 400px;
       text-align: center;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-      animation: aparecer 1.2s ease-out;
+      box-shadow: 0 0 20px #00ff88;
+      animation: fadeIn 1s ease-in-out;
     }
 
-    /* Título */
     h1 {
       font-size: 28px;
       margin-bottom: 10px;
+      color: #00ff88;
+      text-shadow: 0 0 10px #00ff88;
     }
 
-    /* Subtítulo */
     p {
-      font-size: 16px;
+      font-size: 14px;
       margin-bottom: 30px;
-      color: #ccc;
+      color: #00ffcc;
     }
 
-    /* Botões de link */
     .botao-link {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      background: #00ff88;
-      color: #000;
+      gap: 12px;
+      background: transparent;
+      color: #00ff88;
+      border: 1px solid #00ff88;
       text-decoration: none;
-      padding: 14px 20px;
-      border-radius: 12px;
+      padding: 12px 18px;
+      border-radius: 8px;
       font-weight: bold;
       margin: 12px auto;
       width: 80%;
-      transition: 0.3s;
-      animation: subir 0.7s ease-out;
+      transition: 0.3s ease;
+      box-shadow: 0 0 10px #00ff88;
     }
 
     .botao-link:hover {
-      background: #00cc66;
+      background: #00ff88;
+      color: #000;
       transform: scale(1.05);
+      box-shadow: 0 0 20px #00ff88;
     }
 
-    /* Rodapé */
     footer {
       margin-top: 20px;
       font-size: 12px;
-      color: #555;
+      color: #008855;
+      text-shadow: 0 0 8px #00ff88;
     }
 
-    /* Animações */
-    @keyframes aparecer {
-      from { opacity: 0; transform: scale(0.9); }
-      to { opacity: 1; transform: scale(1); }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    @keyframes subir {
-      from { transform: translateY(40px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
+    /* Efeito de terminal piscando no fundo (opcional) */
+    .efeito-terminal::after {
+      content: "_";
+      animation: blink 1s infinite step-start;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Cartão interativo -->
+  <!-- Cartão estilo hacker -->
   <div class="cartao">
-    <h1>Snorlax</h1>
-    <p>👋 Me segue e veja meus projetos e redes:</p>
+    <h1 class="efeito-terminal">Snorlax</h1>
+    <p>Acesse minhas redes e projetos:</p>
 
-    <!-- Botão Instagram -->
+    <!-- Botão do Instagram -->
     <a href="https://instagram.com/eliel.reinan" class="botao-link" target="_blank">
       <i class="fab fa-instagram"></i> Instagram
     </a>
 
-    <!-- Botão GitHub -->
+    <!-- Botão do GitHub -->
     <a href="https://github.com/s-snorlax" class="botao-link" target="_blank">
       <i class="fab fa-github"></i> GitHub
     </a>
   </div>
 
-  <!-- Rodapé -->
   <footer>
-    feito com ❤️ por Eliel
+    Feito por Eliel
   </footer>
 
 </body>
