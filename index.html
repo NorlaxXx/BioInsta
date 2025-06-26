@@ -7,8 +7,9 @@
 
   <!-- Fonte estilo terminal -->
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
-  <!-- Ícones Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-dyZn4w2TVAcqegDgqEz4U9k9L2tsTugTNSMB0Z96DRAMxN1ZCU9sI2M6xtF7EUkMtbPq9/m8CrXlDqVYcD9Z9Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Font Awesome atualizado -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-uQ9a+L5PKIkugY5+emLbHQl+6JkefCgYOXw3ZP+XMKbdvMgErnJClLgqIpd3FLOPzEqik7I16dgrr9vCs1rCJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <style>
     * {
@@ -18,22 +19,11 @@
     }
 
     html, body {
-      width: 100%;
       height: 100%;
-      overflow: hidden;
-      background: black;
       font-family: 'Share Tech Mono', monospace;
+      background: black;
       color: #00ff00;
-    }
-
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: -1;
-      display: block;
+      overflow: hidden;
     }
 
     body {
@@ -42,6 +32,7 @@
       justify-content: center;
       align-items: center;
       padding: 20px;
+      text-align: center;
     }
 
     .cartao {
@@ -51,7 +42,6 @@
       padding: 30px 20px;
       max-width: 400px;
       width: 100%;
-      text-align: center;
       box-shadow: 0 0 30px #00ff00;
       backdrop-filter: blur(4px);
       z-index: 1;
@@ -121,10 +111,7 @@
   </style>
 </head>
 <body>
-  <!-- Canvas Matrix -->
-  <canvas id="matrix"></canvas>
 
-  <!-- Conteúdo -->
   <div class="cartao">
     <h1>Snorlax</h1>
     <p>Acesse minhas redes:</p>
@@ -136,50 +123,13 @@
     <a href="https://github.com/s-snorlax" class="botao-link" target="_blank">
       <i class="fab fa-github"></i> GitHub
     </a>
+
+    <a href="https://www.linkedin.com/in/elielreiinan" class="botao-link" target="_blank">
+      <i class="fab fa-linkedin"></i> LinkedIn
+    </a>
   </div>
 
   <footer>Feito por Eliel</footer>
 
-  <!-- SCRIPT FUNCIONAL DO EFEITO MATRIX -->
-  <script>
-    const canvas = document.getElementById('matrix');
-    const ctx = canvas.getContext('2d');
-
-    // Ajusta o tamanho do canvas corretamente
-    function ajustarCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-
-    window.addEventListener('resize', ajustarCanvas);
-    ajustarCanvas(); // primeira vez
-
-    const letras = '01カナネコ田中'.split('');
-    const fontSize = 16;
-    let columns = Math.floor(window.innerWidth / fontSize);
-    let drops = new Array(columns).fill(1);
-
-    function desenharMatrix() {
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      ctx.fillStyle = '#00ff00';
-      ctx.font = fontSize + 'px monospace';
-
-      for (let i = 0; i < drops.length; i++) {
-        const text = letras[Math.floor(Math.random() * letras.length)];
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-          drops[i] = 0;
-        }
-
-        drops[i]++;
-      }
-    }
-
-    // Atualiza 30x por segundo
-    setInterval(desenharMatrix, 33);
-  </script>
 </body>
 </html>
