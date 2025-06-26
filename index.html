@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Eliel | Link na Bio</title>
 
-  <!-- Fonte pixelada estilo terminal -->
+  <!-- Fonte estilo terminal -->
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
-  <!-- Ícones do FontAwesome -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <!-- Ícones Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-dyZn4w2TVAcqegDgqEz4U9k9L2tsTugTNSMB0Z96DRAMxN1ZCU9sI2M6xtF7EUkMtbPq9/m8CrXlDqVYcD9Z9Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <style>
     * {
@@ -17,74 +18,89 @@
       box-sizing: border-box;
     }
 
-    body {
+    html, body {
+      height: 100%;
       font-family: 'Share Tech Mono', monospace;
-      background: radial-gradient(circle at top, #000 0%, #020202 100%);
-      color: #00ff88;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      padding: 20px;
+      color: #00ff00;
+      background: black;
       overflow: hidden;
     }
 
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
     .cartao {
-      background: rgba(0, 255, 136, 0.05);
-      border: 1px solid #00ff88;
+      background: rgba(0, 0, 0, 0.75);
+      border: 1px solid #00ff00;
       border-radius: 16px;
-      padding: 40px 20px;
+      padding: 32px 20px;
       max-width: 420px;
       width: 100%;
       text-align: center;
-      box-shadow: 0 0 20px #00ff88;
+      box-shadow: 0 0 30px #00ff00;
+      backdrop-filter: blur(4px);
       animation: fadeIn 1s ease-in-out;
     }
 
     h1 {
-      font-size: 28px;
+      font-size: 26px;
       margin-bottom: 10px;
-      color: #00ff88;
-      text-shadow: 0 0 10px #00ff88;
+      text-shadow: 0 0 10px #00ff00;
     }
 
     p {
       font-size: 14px;
-      margin-bottom: 30px;
-      color: #00ffcc;
+      margin-bottom: 28px;
+      color: #66ff66;
     }
 
     .botao-link {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
+      gap: 10px;
       background: transparent;
-      color: #00ff88;
-      border: 1px solid #00ff88;
+      color: #00ff00;
+      border: 2px solid #00ff00;
       text-decoration: none;
-      padding: 12px 18px;
-      border-radius: 8px;
+      padding: 12px;
+      border-radius: 10px;
       font-weight: bold;
-      margin: 12px auto;
-      width: 80%;
-      transition: 0.3s ease;
-      box-shadow: 0 0 10px #00ff88;
+      margin: 10px auto;
+      width: 100%;
+      max-width: 300px;
+      transition: 0.3s;
+      box-shadow: 0 0 12px #00ff00;
     }
 
     .botao-link:hover {
-      background: #00ff88;
+      background: #00ff00;
       color: #000;
       transform: scale(1.05);
-      box-shadow: 0 0 20px #00ff88;
+    }
+
+    .botao-link i {
+      font-size: 18px;
     }
 
     footer {
-      margin-top: 20px;
+      margin-top: 16px;
       font-size: 12px;
-      color: #008855;
-      text-shadow: 0 0 8px #00ff88;
+      color: #33ff33;
+      text-shadow: 0 0 8px #00ff00;
     }
 
     @keyframes fadeIn {
@@ -92,38 +108,84 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Efeito de terminal piscando no fundo (opcional) */
-    .efeito-terminal::after {
-      content: "_";
-      animation: blink 1s infinite step-start;
-    }
+    @media (max-width: 480px) {
+      .cartao {
+        padding: 24px 16px;
+      }
 
-    @keyframes blink {
-      50% { opacity: 0; }
+      h1 {
+        font-size: 22px;
+      }
+
+      .botao-link {
+        font-size: 14px;
+      }
+
+      .botao-link i {
+        font-size: 16px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Cartão estilo hacker -->
-  <div class="cartao">
-    <h1 class="efeito-terminal">Snorlax</h1>
-    <p>Acesse minhas redes e projetos:</p>
+  <!-- Matrix canvas -->
+  <canvas id="matrix"></canvas>
 
-    <!-- Botão do Instagram -->
+  <!-- Cartão hacker -->
+  <div class="cartao">
+    <h1>Snorlax</h1>
+    <p>Acesse minhas redes:</p>
+
     <a href="https://instagram.com/eliel.reinan" class="botao-link" target="_blank">
       <i class="fab fa-instagram"></i> Instagram
     </a>
 
-    <!-- Botão do GitHub -->
     <a href="https://github.com/s-snorlax" class="botao-link" target="_blank">
       <i class="fab fa-github"></i> GitHub
     </a>
   </div>
 
-  <footer>
-    Feito por Eliel
-  </footer>
+  <footer>Feito por Eliel</footer>
 
+  <!-- Script Matrix -->
+  <script>
+    const canvas = document.getElementById("matrix");
+    const ctx = canvas.getContext("2d");
+
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+
+    const letters = "01田中ネコカタカナ仮名語".split("");
+    const fontSize = 16;
+    const columns = Math.floor(canvas.width / fontSize);
+    const drops = Array(columns).fill(1);
+
+    function draw() {
+      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = "#00ff00";
+      ctx.font = fontSize + "px monospace";
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = letters[Math.floor(Math.random() * letters.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+
+        drops[i]++;
+      }
+    }
+
+    setInterval(draw, 33);
+
+    window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  </script>
 </body>
 </html>
