@@ -2,46 +2,125 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Meu Link Bio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eliel | Link na Bio</title>
+
+  <!-- Fonte moderna -->
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Ícones do FontAwesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(180deg, #000000, #111111);
-      color: #fff;
-      text-align: center;
-      padding: 50px;
-      min-height: 100vh;
+    /* Reset e estilo básico */
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
+    body {
+      font-family: 'Rubik', sans-serif;
+      background: linear-gradient(160deg, #000000, #111111);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    /* Cartão principal */
+    .cartao {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 40px 20px;
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+      animation: aparecer 1.2s ease-out;
+    }
+
+    /* Título */
     h1 {
-      margin-bottom: 20px;
+      font-size: 28px;
+      margin-bottom: 10px;
     }
 
-    a {
-      display: block;
-      margin: 12px auto;
-      padding: 12px 20px;
-      width: 240px;
+    /* Subtítulo */
+    p {
+      font-size: 16px;
+      margin-bottom: 30px;
+      color: #ccc;
+    }
+
+    /* Botões de link */
+    .botao-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
       background: #00ff88;
       color: #000;
       text-decoration: none;
-      border-radius: 8px;
+      padding: 14px 20px;
+      border-radius: 12px;
       font-weight: bold;
+      margin: 12px auto;
+      width: 80%;
       transition: 0.3s;
+      animation: subir 0.7s ease-out;
     }
 
-    a:hover {
+    .botao-link:hover {
       background: #00cc66;
       transform: scale(1.05);
+    }
+
+    /* Rodapé */
+    footer {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #555;
+    }
+
+    /* Animações */
+    @keyframes aparecer {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes subir {
+      from { transform: translateY(40px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
   </style>
 </head>
 <body>
-  <h1>👋 Oi, eu sou Eliel</h1>
-  <p>Veja meus links:</p>
-  <a href="https://instagram.com/seuusuario" target="_blank">Instagram</a>
-  <a href="https://linkedin.com/in/seuusuario" target="_blank">LinkedIn</a>
-  <a href="https://youtube.com/@seuusuario" target="_blank">YouTube</a>
+
+  <!-- Cartão interativo -->
+  <div class="cartao">
+    <h1>Snorlax</h1>
+    <p>👋 Me segue e veja meus projetos e redes:</p>
+
+    <!-- Botão Instagram -->
+    <a href="https://instagram.com/eliel.reinan" class="botao-link" target="_blank">
+      <i class="fab fa-instagram"></i> Instagram
+    </a>
+
+    <!-- Botão GitHub -->
+    <a href="https://github.com/s-snorlax" class="botao-link" target="_blank">
+      <i class="fab fa-github"></i> GitHub
+    </a>
+  </div>
+
+  <!-- Rodapé -->
+  <footer>
+    feito com ❤️ por Eliel
+  </footer>
+
 </body>
 </html>
