@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Eliel | Link Bio</title>
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+
   <!-- Fonte estilo terminal -->
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
@@ -14,13 +17,13 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     html, body {
-  height: 100%;
-  font-family: 'Share Tech Mono', monospace;
-  background: url("matrix-code.gif") no-repeat center center fixed;
-  background-size: cover;
-  color: #00ff00;
-  overflow: hidden;
-}
+      height: 100%;
+      font-family: 'Share Tech Mono', monospace;
+      background: url("matrix-code.gif") no-repeat center center fixed;
+      background-size: cover;
+      color: #00ff00;
+      overflow: hidden;
+    }
 
     #tsparticles {
       position: fixed;
@@ -102,7 +105,10 @@
     }
 
     footer {
-      margin-top: 25px;
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
       color: #00ff00;
       font-size: 13px;
       text-shadow: 0 0 8px #00ff00;
@@ -113,7 +119,33 @@
       h1 { font-size: 22px; }
       .botao-link { font-size: 14px; }
     }
+
+    @media (max-height: 500px) {
+      .cartao {
+        transform: scale(0.85);
+      }
+    }
   </style>
+
+  <!-- Efeito de digitação -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const title = document.querySelector("h1");
+      const text = "Eliel";
+      let i = 0;
+      title.textContent = "";
+
+      function typeWriter() {
+        if (i < text.length) {
+          title.textContent += text.charAt(i);
+          i++;
+          setTimeout(typeWriter, 150);
+        }
+      }
+
+      typeWriter();
+    });
+  </script>
 </head>
 <body>
 
@@ -125,11 +157,10 @@
     <!-- Foto de perfil -->
     <img src="perfil.jpg" alt="Foto de perfil" class="foto-perfil" />
 
-
-    <h1>Eliel</h1>
+    <h1></h1>
     <p>Acesse minhas redes</p>
 
-    <a href="https://instagram.com/eliel.reinan" class="botao-link" target="_blank">
+    <a href="https://instagram.com/norlax.dev" class="botao-link" target="_blank">
       <i class="fab fa-instagram"></i> Instagram
     </a>
 
@@ -143,6 +174,10 @@
 
     <a href="https://forms.gle/rE72fd5er8zxFXB1A" class="botao-link" target="_blank">
       <i class="fas fa-comments-dollar"></i> Solicitar Orçamento
+    </a>
+
+    <a href="https://wa.me/5571992989940" class="botao-link" target="_blank">
+      <i class="fab fa-whatsapp"></i> WhatsApp
     </a>
   </div>
 
