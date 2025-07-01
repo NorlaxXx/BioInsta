@@ -5,10 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Eliel | Link Bio</title>
 
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png" />
-
-  <!-- Fonte estilo terminal -->
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
@@ -19,8 +16,8 @@
     html, body {
       height: 100%;
       font-family: 'Share Tech Mono', monospace;
-      background: #0a0a0a;
-      color: #00CFFF;
+      background: #000;
+      color: #fff;
       overflow: hidden;
     }
 
@@ -41,23 +38,28 @@
     }
 
     .cartao {
-      background: rgba(0, 0, 0, 0.75);
-      border: 2px solid #00CFFF;
+      background: rgba(30, 30, 30, 0.85);
+      border: 2px solid #fff;
       border-radius: 16px;
       padding: 30px 20px;
       max-width: 400px;
       width: 100%;
-      box-shadow: 0 0 30px #00CFFF;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
       backdrop-filter: blur(4px);
       z-index: 1;
+    }
+
+    .logo-norlax {
+      width: 100px;
+      margin-bottom: 15px;
     }
 
     .foto-perfil {
       width: 120px;
       height: 120px;
       border-radius: 50%;
-      border: 3px solid #00CFFF;
-      box-shadow: 0 0 15px #00CFFF;
+      border: 3px solid #fff;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
       object-fit: cover;
       margin-bottom: 15px;
     }
@@ -65,13 +67,27 @@
     h1 {
       font-size: 26px;
       margin-bottom: 10px;
-      text-shadow: 0 0 10px #00CFFF;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid #fff;
+      animation: typing 2s steps(10) 1s forwards, blink 0.75s step-end infinite;
+      width: 0;
+      margin: 0 auto 10px;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
     }
 
     p {
       font-size: 14px;
       margin-bottom: 24px;
-      color: #00FFB2;
+      color: #aaa;
     }
 
     .botao-link {
@@ -80,8 +96,8 @@
       justify-content: center;
       gap: 10px;
       background: transparent;
-      color: #00CFFF;
-      border: 2px solid #00CFFF;
+      color: #fff;
+      border: 2px solid #fff;
       text-decoration: none;
       padding: 12px;
       border-radius: 8px;
@@ -89,12 +105,29 @@
       margin: 10px auto;
       width: 100%;
       max-width: 280px;
-      transition: 0.3s ease;
-      box-shadow: 0 0 12px #00CFFF;
+      transition: all 0.4s ease;
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .botao-link::before {
+      content: "";
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: #fff;
+      opacity: 0.05;
+      transform: skewX(-20deg);
+      transition: left 0.5s;
+    }
+
+    .botao-link:hover::before {
+      left: 100%;
     }
 
     .botao-link:hover {
-      background: #00CFFF;
+      background: #fff;
       color: #000;
       transform: scale(1.05);
     }
@@ -108,114 +141,52 @@
       bottom: 10px;
       width: 100%;
       text-align: center;
-      color: #00CFFF;
+      color: #888;
       font-size: 13px;
-      text-shadow: 0 0 8px #00CFFF;
-    }
-
-    @media (max-width: 500px) {
-      .cartao { padding: 20px 16px; }
-      h1 { font-size: 22px; }
-      .botao-link { font-size: 14px; }
-    }
-
-    @media (max-height: 500px) {
-      .cartao {
-        transform: scale(0.85);
-      }
     }
   </style>
-
-  <!-- Efeito de digitação -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const title = document.querySelector("h1");
-      const text = "Eliel";
-      let i = 0;
-      title.textContent = "";
-
-      function typeWriter() {
-        if (i < text.length) {
-          title.textContent += text.charAt(i);
-          i++;
-          setTimeout(typeWriter, 150);
-        }
-      }
-
-      typeWriter();
-    });
-  </script>
 </head>
 <body>
 
-  <!-- Fundo animado -->
   <div id="tsparticles"></div>
 
-  <!-- Cartão principal -->
   <div class="cartao">
-    <!-- Foto de perfil -->
+    <img src="Logo da NORLAX em Destaque.png" alt="Logo NorLax" class="logo-norlax" />
     <img src="perfil.jpg" alt="Foto de perfil" class="foto-perfil" />
 
-    <h1></h1>
-    <p>Acesse minhas redes</p>
-
-    <a href="https://instagram.com/norlax.dev" class="botao-link" target="_blank">
-      <i class="fab fa-instagram"></i> Instagram
-    </a>
-
-    <a href="https://github.com/s-snorlax" class="botao-link" target="_blank">
-      <i class="fab fa-github"></i> GitHub
-    </a>
-
-    <a href="https://www.linkedin.com/in/elielreiinan" class="botao-link" target="_blank">
-      <i class="fab fa-linkedin"></i> LinkedIn
-    </a>
-
-    <a href="https://forms.gle/rE72fd5er8zxFXB1A" class="botao-link" target="_blank">
-      <i class="fas fa-comments-dollar"></i> Solicitar Orçamento
-    </a>
+    <h1>Eliel</h1>
+    <p>Desenvolvedor criativo, apaixonado por soluções digitais simples e eficientes.</p>
 
     <a href="https://wa.me/5571992989940" class="botao-link" target="_blank">
       <i class="fab fa-whatsapp"></i> WhatsApp
+    </a>
+    <a href="https://instagram.com/norlax.dev" class="botao-link" target="_blank">
+      <i class="fab fa-instagram"></i> Instagram
+    </a>
+    <a href="https://forms.gle/rE72fd5er8zxFXB1A" class="botao-link" target="_blank">
+      <i class="fas fa-file-signature"></i> Orçamento
+    </a>
+    <a href="https://github.com/s-snorlax" class="botao-link" target="_blank">
+      <i class="fas fa-laptop-code"></i> Portfólio
     </a>
   </div>
 
   <footer>Feito por Eliel 🎩</footer>
 
-  <!-- Script partículas -->
   <script>
     tsParticles.load("tsparticles", {
-      background: { color: "#0a0a0a" },
+      background: { color: "#00000000" },
       fpsLimit: 60,
       interactivity: {
-        events: {
-          onHover: { enable: true, mode: "grab" },
-          resize: true
-        },
-        modes: {
-          grab: { distance: 140, links: { opacity: 0.5 } }
-        }
+        events: { onHover: { enable: true, mode: "grab" }, resize: true },
+        modes: { grab: { distance: 140, links: { opacity: 0.5 } } }
       },
       particles: {
-        color: { value: "#00CFFF" },
-        links: {
-          color: "#00CFFF",
-          distance: 130,
-          enable: true,
-          opacity: 0.3,
-          width: 1
-        },
-        move: {
-          enable: true,
-          speed: 0.5,
-          direction: "none",
-          outModes: "bounce"
-        },
-        number: {
-          density: { enable: true, area: 800 },
-          value: 50
-        },
-        opacity: { value: 0.6 },
+        color: { value: "#FFFFFF" },
+        links: { color: "#FFFFFF", distance: 130, enable: true, opacity: 0.2, width: 1 },
+        move: { enable: true, speed: 0.5, direction: "none", outModes: "bounce" },
+        number: { density: { enable: true, area: 800 }, value: 50 },
+        opacity: { value: 0.5 },
         shape: { type: "circle" },
         size: { value: { min: 1, max: 3 } }
       },
