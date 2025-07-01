@@ -16,8 +16,8 @@
     html, body {
       height: 100%;
       font-family: 'Share Tech Mono', monospace;
-      background: #000;
-      color: #fff;
+      background: #0d0d0d;
+      color: #eaeaea;
       overflow: hidden;
     }
 
@@ -38,56 +38,40 @@
     }
 
     .cartao {
-      background: rgba(30, 30, 30, 0.85);
-      border: 2px solid #fff;
+      background: #1a1a1a;
+      border: 1px solid #333;
       border-radius: 16px;
-      padding: 30px 20px;
+      padding: 32px 24px;
       max-width: 400px;
       width: 100%;
-      box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(4px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+      text-align: center;
       z-index: 1;
     }
 
     .logo-norlax {
-      width: 100px;
-      margin-bottom: 15px;
+      width: 90px;
+      margin-bottom: 16px;
     }
 
     .foto-perfil {
-      width: 120px;
-      height: 120px;
+      width: 100px;
+      height: 100px;
       border-radius: 50%;
-      border: 3px solid #fff;
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+      border: 2px solid #444;
       object-fit: cover;
-      margin-bottom: 15px;
+      margin-bottom: 16px;
     }
 
     h1 {
-      font-size: 26px;
+      font-size: 24px;
       margin-bottom: 10px;
-      white-space: nowrap;
-      overflow: hidden;
-      border-right: 2px solid #fff;
-      animation: typing 2s steps(10) 1s forwards, blink 0.75s step-end infinite;
-      width: 0;
-      margin: 0 auto 10px;
-    }
-
-    @keyframes typing {
-      from { width: 0; }
-      to { width: 100%; }
-    }
-
-    @keyframes blink {
-      50% { border-color: transparent; }
     }
 
     p {
       font-size: 14px;
+      color: #999;
       margin-bottom: 24px;
-      color: #aaa;
     }
 
     .botao-link {
@@ -95,54 +79,33 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      background: transparent;
-      color: #fff;
-      border: 2px solid #fff;
-      text-decoration: none;
+      background: #111;
+      color: #eaeaea;
+      border: 1px solid #333;
       padding: 12px;
-      border-radius: 8px;
-      font-weight: bold;
-      margin: 10px auto;
+      margin: 8px auto;
       width: 100%;
       max-width: 280px;
-      transition: all 0.4s ease;
-      box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .botao-link::before {
-      content: "";
-      position: absolute;
-      top: 0; left: -100%;
-      width: 100%; height: 100%;
-      background: #fff;
-      opacity: 0.05;
-      transform: skewX(-20deg);
-      transition: left 0.5s;
-    }
-
-    .botao-link:hover::before {
-      left: 100%;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.2s ease-in-out;
     }
 
     .botao-link:hover {
-      background: #fff;
-      color: #000;
-      transform: scale(1.05);
+      background: #222;
+      color: #fff;
+      border-color: #555;
     }
 
     .botao-link i {
-      font-size: 18px;
+      font-size: 16px;
     }
 
     footer {
-      position: absolute;
-      bottom: 10px;
-      width: 100%;
-      text-align: center;
-      color: #888;
-      font-size: 13px;
+      font-size: 12px;
+      color: #666;
+      margin-top: 20px;
     }
   </style>
 </head>
@@ -155,7 +118,7 @@
     <img src="perfil.jpg" alt="Foto de perfil" class="foto-perfil" />
 
     <h1>Eliel</h1>
-    <p>Desenvolvedor criativo, apaixonado por soluções digitais simples e eficientes.</p>
+    <p>Dev Trainee construindo projetos reais com foco em experiência e resultado.</p>
 
     <a href="https://wa.me/5571992989940" class="botao-link" target="_blank">
       <i class="fab fa-whatsapp"></i> WhatsApp
